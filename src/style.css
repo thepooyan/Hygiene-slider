@@ -82,9 +82,12 @@ p {
       width: 15rem;
       filter: drop-shadow(2px 4px 6px #00000080);
       position: absolute;
+      transition: all .4s;
 
       &:not(.active) {
         opacity: 0;
+        rotate: 20deg;
+        scale: .8;
       }
     }
   }
