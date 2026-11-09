@@ -122,7 +122,7 @@ p {
     }
   }
 
-  .texts {
+  .center {
     display: flex;
     flex: auto;
     flex-direction: column;
@@ -152,7 +152,7 @@ p {
       }
 
       &:not(.active) {
-        display: none;
+        opacity: .2;
       }
     } 
     .title {
