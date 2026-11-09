@@ -31,8 +31,9 @@ p {
 }
 #asperox-animation {
   background: url(https://hygiene247.com/wp-content/uploads/2026/11/Teal-and-Cream-Flowing-Gradient-Waves.png) no-repeat ;
-  background-color: #03ab9e;
-  background-size: contain;
+  background-size: 100% auto;
+  background-position: 0 58%;
+  height: 25rem;
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
@@ -52,16 +53,22 @@ p {
   }
 
 
-  video {
-    width: 30%;
-    border: 5px solid white;
-    border-radius: .5rem;
+  .video {
+    flex: 30%;
     margin: 2rem;
     z-index: 20;
+
+    video {
+      margin: auto;
+      height: 100%;
+      border: 5px solid white;
+      border-radius: .5rem;
+      display: block;
+    }
   }
 
   .bottle {
-    width: 25%;
+    flex: 25%;
     overflow: hidden;
     z-index: 20;
     display: flex;
@@ -69,7 +76,7 @@ p {
 
     img {
       width: 100%;
-      scale: 1.32;
+      scale: 1;
       padding-bottom: 1rem;
       transform-origin: bottom;
       filter: drop-shadow(2px 4px 6px #00000080);
