@@ -74,13 +74,18 @@ p {
     z-index: 20;
     display: flex;
     align-items: flex-end;
+    position: relative;
 
     img {
       width: 100%;
-      scale: 1;
-      padding-bottom: 1rem;
-      transform-origin: bottom;
+      margin-bottom: 1rem;
+      width: 15rem;
       filter: drop-shadow(2px 4px 6px #00000080);
+      position: absolute;
+
+      &:not(.active) {
+        opacity: 0;
+      }
     }
   }
 
