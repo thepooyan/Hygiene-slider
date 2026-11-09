@@ -30,7 +30,7 @@ p {
   }
 }
 :root {
-  --shake: 3deg;
+  --shake: 2deg;
 }
 @keyframes shake {
 
@@ -75,7 +75,7 @@ p {
     position: absolute;
     inset: 0;
     z-index: 10;
-    mask-image: linear-gradient(to left, transparent 40%, black 60%);
+    mask-image: linear-gradient(to left, transparent 64%, black 77%);
   }
 
 
@@ -131,29 +131,40 @@ p {
     gap: 2rem;
     z-index: 20;
 
-    .text {
-      text-align: center;
-      font-weight: bold;
-      background: white;
-      color: var(--green);
-      padding: .3rem 1rem;
-      padding-right: .5rem;
-      border-radius: 20rem;
-      border: 3px solid var(--green);
+    .text-placeholder {
       display: flex;
       justify-content: center;
-      align-items: center;
       gap: .5rem;
+      position: relative;
 
-      .twinkle {
-        color: var(--yellow);
-        width: 1.7rem;
-        animation: twinkle 1s alternate infinite;
-      }
+      .text {
+        position: absolute;
+        width: max-content;
+        text-align: center;
+        font-weight: bold;
+        background: white;
+        color: var(--green);
+        padding: .3rem 1rem;
+        padding-right: .5rem;
+        border-radius: 20rem;
+        border: 3px solid var(--green);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
 
-      &:not(.active) {
-        opacity: .2;
-      }
+        .twinkle {
+          color: var(--yellow);
+          width: 1.7rem;
+          animation: twinkle 1s alternate infinite;
+        }
+
+        transition: .2s;
+        &:not(.active) {
+          opacity: 0;
+          translate: 9px 0;
+        }
+      } 
     } 
     .title {
       text-align: center;
