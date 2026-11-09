@@ -39,6 +39,17 @@ p {
   --green:#03383D ;
   --yellow:#FDC833 ;
   --red: #BF0B0C;
+  position: relative;
+
+  &::before {
+    content: "";
+    background: url(https://hygiene247.com/wp-content/uploads/2026/11/Potted-Greenery-on-Marble-Countertop.png) no-repeat;
+    background-size: contain;
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+  }
 
 
   video {
@@ -46,17 +57,22 @@ p {
     border: 5px solid white;
     border-radius: .5rem;
     margin: 2rem;
+    z-index: 20;
   }
 
   .bottle {
     width: 25%;
     overflow: hidden;
+    z-index: 20;
+    display: flex;
+    align-items: flex-end;
 
     img {
       width: 100%;
-      scale: 2;
-      transform-origin: top;
-          filter: drop-shadow(2px 4px 6px black);
+      scale: 1.32;
+      padding-bottom: 1rem;
+      transform-origin: bottom;
+      filter: drop-shadow(2px 4px 6px #00000080);
     }
   }
 
@@ -67,6 +83,7 @@ p {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    z-index: 20;
 
     .text {
       text-align: center;
