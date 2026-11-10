@@ -9,7 +9,7 @@ const initSlider = () => {
     const bottles = asperox.querySelectorAll(".bottle img")
     const timing = [0,2.5,3,2,2.5];
 
-    video.play()
+    video?.play()
 
     timing.reduce((prev, current, index) => {
       setTimeout(() => {
@@ -17,8 +17,8 @@ const initSlider = () => {
         const bottle = Array.from(bottles).at(index-1);
         texts.forEach(t => t.classList.remove("active"))
         bottles.forEach(t => t.classList.remove("active"))
-        text.classList.add("active")
-        bottle.classList.add("active")
+        text?.classList.add("active")
+        bottle?.classList.add("active")
       }, prev * 1000)
       return prev + current
     })
