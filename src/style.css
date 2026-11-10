@@ -229,7 +229,6 @@ p {
   }
 
   @media (max-width: 1025px) {
-    --font-scale: .6;
     &::before {
       content: unset;
     }
@@ -262,8 +261,11 @@ p {
     }
     .video {
       margin: auto;
-      max-width: 10rem;
+      max-width: 20rem;
     }
 
+  }
+  @media (max-width: 489px) {
+    --font-scale: .6;
   }
 }
