@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-  setTimeout(initSlider, 2000)
+  setTimeout(initSlider, 0)
 })
 
 const initSlider = () => {

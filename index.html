@@ -11,15 +11,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
   </head>
   <body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="display: none;" hidden>
+      <symbol id="icon-twinkle">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path fill="currentColor" d="M10.6 9.6L9 15L7.4 9.6L2 8l5.4-1.6L9 1l1.6 5.4L16 8zm6.4 4.6l4-2.2l-2.2 4l2.2 4l-4-2.2l-4 2.2l2.2-4l-2.2-4zM10 16l-1.7 3l1.7 3l-3-1.7L4 22l1.7-3L4 16l3 1.7z" />
+      </symbol>
+      <symbol id="icon-chevron-left">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <g fill="none">
+          <path fill="currentColor" d="M1.69 11.98a10.31 10.31 0 1 0 20.62 0a10.31 10.31 0 0 0-20.62 0" opacity=".2" />
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m13.62 6.2l-2.97 2.97c-1.33 1.33-2 2-2 2.82c0 .83.66 1.5 2 2.84l2.97 2.96" />
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1.7 11.98a10.31 10.31 0 1 1 20.61 0a10.31 10.31 0 0 1-20.62 0" />
+        </g>
+      </symbol>
+    </svg>
     <div id="slider">
       <div class="slide active" id="asperox-animation">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="display: none;" hidden>
-          <symbol id="icon-twinkle">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path fill="currentColor" d="M10.6 9.6L9 15L7.4 9.6L2 8l5.4-1.6L9 1l1.6 5.4L16 8zm6.4 4.6l4-2.2l-2.2 4l2.2 4l-4-2.2l-4 2.2l2.2-4l-2.2-4zM10 16l-1.7 3l1.7 3l-3-1.7L4 22l1.7-3L4 16l3 1.7z" />
-          </symbol>
-        </svg>
-
         <div class="bottle">
           <img src="https://hygiene247.com/wp-content/uploads/2026/11/zard.webp" class="active"/>
           <img src="https://hygiene247.com/wp-content/uploads/2026/11/abi.webp"/>
@@ -82,6 +89,22 @@
           </video>
         </div>
 
+      </div>
+      <div class="slide">
+        slide 2
+      </div>
+      <div class="slide">
+        slide 3
+      </div>
+      <div class="controls" style="display: none;">
+        <svg width="1em" height="1em" viewBox="0 0 24 24">
+          <use href="#icon-chevron-left"/>
+        </svg>
+        <svg width="1em" height="1em" viewBox="0 0 24 24">
+          <use href="#icon-chevron-left"/>
+        </svg>
+
+        
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
