@@ -237,8 +237,8 @@ p {
       flex: 1%;
 
       img {
-        left: -4rem;
-        rotate: 20deg;
+        left: -2rem;
+        rotate: 15deg;
         animation: unset !important;
       }
     }
