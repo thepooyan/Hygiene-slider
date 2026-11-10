@@ -80,13 +80,16 @@ p {
 
 
   .video {
-    flex: 30%;
+    flex: 20%;
     margin: 2rem;
     z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     video {
-      margin: auto;
-      height: 100%;
+      max-height: 100%;
+      max-width: 100%;
       border: 5px solid white;
       border-radius: .5rem;
       display: block;
@@ -95,18 +98,17 @@ p {
 
   .bottle {
     flex: 25%;
-    overflow: hidden;
     z-index: 20;
     display: flex;
     align-items: flex-end;
     position: relative;
 
     img {
-      width: 100%;
       margin-bottom: 1rem;
       width: 15rem;
       filter: drop-shadow(2px 4px 6px #00000080);
       position: absolute;
+      left: 2rem;
       transition: all .4s, opacity .2s;
 
       &.active {
@@ -211,5 +213,19 @@ p {
         }
       }
     }
+  }
+
+
+  @media (max-width: 1200px) {
+
+  }
+  @media (max-width: 1025px) {
+    background: yellow;
+  }
+  @media (max-width: 769px) {
+    background: red;
+  }
+  @media (max-width: 481px) {
+    background: yellow;
   }
 }
