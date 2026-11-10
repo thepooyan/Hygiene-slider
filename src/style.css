@@ -65,6 +65,7 @@ p {
   --green:#03383D ;
   --yellow:#FDC833 ;
   --red: #BF0B0C;
+  --font-scale: 1;
   position: relative;
 
   &::before {
@@ -171,7 +172,7 @@ p {
     .title {
       text-align: center;
       color: var(--green);
-      font-size: 3rem;
+      font-size: calc(var(--font-scale) * 3rem);
       font-weight: 800;
       -webkit-text-stroke: 15px white;
       paint-order: stroke fill;
@@ -194,7 +195,7 @@ p {
       padding-right: 3px;
       transform: perspective(500px) rotateY(6deg);
       rotate: -3deg;
-      font-size: 2rem;
+      font-size: calc(var(--font-scale) * 2rem);
       font-weight: 900;
       letter-spacing: -2px;
       text-shadow: 1px 1px 3px #00000075;
@@ -217,7 +218,7 @@ p {
 
 
   @media (max-width: 1200px) {
-
+    --font-scale: .7;
   }
   @media (max-width: 1025px) {
     background: yellow;
