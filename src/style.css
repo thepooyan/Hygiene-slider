@@ -56,7 +56,7 @@ p {
 }
 
 #asperox-animation {
-  background: url(https://hygiene247.com/wp-content/uploads/2026/11/Teal-and-Cream-Flowing-Gradient-Waves.png) no-repeat;
+  background: url(https://hygiene247.com/wp-content/uploads/2026/11/Teal-and-Cream-Flowing-Gradient-Waves.webp) no-repeat;
   background-size: 100% auto;
   background-position: 0 58%;
   height: calc(25rem * var(--scale));
@@ -72,7 +72,7 @@ p {
 
   &::before {
     content: "";
-    background: url(https://hygiene247.com/wp-content/uploads/2026/11/Potted-Greenery-on-Marble-Countertop.png) no-repeat;
+    background: url(https://hygiene247.com/wp-content/uploads/2026/11/Potted-Greenery-on-Marble-Countertop.webp) no-repeat;
     background-size: contain;
     display: block;
     position: absolute;
