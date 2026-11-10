@@ -60,6 +60,7 @@ p {
   background-size: 100% auto;
   background-position: 0 58%;
   height: calc(25rem * var(--scale));
+  overflow-x: hidden;
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
@@ -228,20 +229,41 @@ p {
   }
 
   @media (max-width: 1025px) {
+    --font-scale: .6;
     &::before {
       content: unset;
     }
-    .bottle img {
-      left: 0;
+    .bottle {
+      flex: 1%;
+
+      img {
+        left: -4rem;
+        rotate: 20deg;
+        animation: unset !important;
+      }
     }
 
   }
 
   @media (max-width: 769px) {
-    background: red;
-  }
+    flex-direction: column;
+    height: unset;
+    background-size: cover;
+    gap: 1rem;
+    padding: 1rem;
+    .center {
+      gap: 1rem;
+      .text-placeholder {
+        height: 2.4rem;
+      }
+    }
+    .bottle {
+      display: none;
+    }
+    .video {
+      margin: auto;
+      max-width: 10rem;
+    }
 
-  @media (max-width: 481px) {
-    background: yellow;
   }
 }
