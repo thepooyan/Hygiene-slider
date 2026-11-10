@@ -20,6 +20,11 @@ p {
       display: none;
     }
   }
+
+  transition: filter .2s;
+  &:not(.active) {
+    filter: grayscale(1) blur(9px);
+  }
 }
 
 @keyframes twinkle {

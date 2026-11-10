@@ -1,10 +1,11 @@
 window.addEventListener("load", () => {
-  initSlider()
+  setTimeout(initSlider, 2000)
 })
 
 const initSlider = () => {
   const slider = document.getElementById("slider")
   if (!slider) throw new Error("slider not found")
+  slider.classList.add("active")
 
   const asperox = slider.querySelector("#asperox-animation");
   if (asperox) {
@@ -27,5 +28,4 @@ const initSlider = () => {
       return prev + current
     })
   }
-
 }
