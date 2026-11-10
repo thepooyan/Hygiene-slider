@@ -98,7 +98,7 @@ p {
   }
 
   .bottle {
-    flex: 25%;
+    flex: 13%;
     z-index: 20;
     display: flex;
     align-items: flex-end;
@@ -227,7 +227,13 @@ p {
   }
 
   @media (max-width: 1025px) {
-    background: yellow;
+    &::before {
+      content: unset;
+    }
+    .bottle img {
+      left: 0;
+    }
+
   }
 
   @media (max-width: 769px) {
