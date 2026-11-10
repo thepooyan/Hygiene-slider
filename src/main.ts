@@ -1,3 +1,7 @@
+window.addEventListener("load", () => {
+  initSlider()
+})
+
 const initSlider = () => {
   const slider = document.getElementById("slider")
   if (!slider) throw new Error("slider not found")
@@ -10,6 +14,7 @@ const initSlider = () => {
     const timing = [0,2.5,3,2,2.5];
 
     video?.play()
+    video?.addEventListener("ended", initSlider)
 
     timing.reduce((prev, current, index) => {
       setTimeout(() => {
@@ -25,4 +30,3 @@ const initSlider = () => {
   }
 
 }
-setTimeout(() => initSlider(), 2000)
