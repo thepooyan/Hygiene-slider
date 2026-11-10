@@ -5,6 +5,7 @@ body {
   font-weight: 500;
   font-style: normal;
   --scale: 1;
+  margin: 0;
 }
 
 p {
