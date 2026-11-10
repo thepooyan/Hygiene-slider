@@ -14,7 +14,6 @@ const initSlider = () => {
     const timing = [0,2.5,3,2,2.5];
 
     video?.play()
-    video?.addEventListener("ended", initSlider)
 
     timing.reduce((prev, current, index) => {
       setTimeout(() => {
