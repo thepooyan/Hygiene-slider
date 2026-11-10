@@ -105,11 +105,12 @@ p {
     position: relative;
 
     img {
-      margin-bottom: calc(1rem * var(--scale));
-      width: calc(15rem * var(--scale));
+      margin-bottom: calc(2rem * var(--scale));
+      width: calc(8rem * var(--scale));
+      height: calc(22rem * var(--scale));
       filter: drop-shadow(2px 4px 6px #00000080);
       position: absolute;
-      left: calc(2rem * var(--scale));
+      left: calc(5rem * var(--scale));
       transition: all .4s, opacity .2s;
 
       &.active {
