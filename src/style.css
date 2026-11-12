@@ -159,7 +159,7 @@ p {
         padding: calc(.3rem * var(--scale)) calc(1rem * var(--scale));
         padding-right: calc(.5rem * var(--scale));
         border-radius: 20rem;
-        border: 3px solid var(--green);
+        border: calc(3px * var(--scale)) solid var(--green);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -185,7 +185,7 @@ p {
       color: var(--green);
       font-size: calc(var(--font-scale) * 3rem);
       font-weight: 800;
-      -webkit-text-stroke: 15px white;
+      -webkit-text-stroke: calc(15px * var(--font-scale)) white;
       paint-order: stroke fill;
       letter-spacing: -3px;
       filter: drop-shadow(8px 10px 2px #00000045);
