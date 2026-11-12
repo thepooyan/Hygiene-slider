@@ -6,18 +6,47 @@ body {
   font-style: normal;
   --scale: 1;
   margin: 0;
-}
 
-p {
-  margin: 0;
+  p {
+    margin: 0;
+  }
 }
 
 #slider {
   display: flex;
+  position: relative;
+  min-height: calc(25rem * var(--scale));
+  background: gray;
 
   .slide {
     &:not(.active) {
       display: none;
+    }
+  }
+  .controls {
+    .left,.right {
+      position: absolute;
+      z-index: 20;
+      inset-block: 0;
+      margin: auto;
+      font-size: 2rem;
+      background: #3f3f3f78;
+      color: white;
+      padding: 1.6rem .5rem;
+      cursor: pointer;
+      --radius: 1rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .left {
+      left: 0;
+    }
+    .right {
+      rotate: 180deg;
+      right: 0;
     }
   }
 
@@ -27,39 +56,6 @@ p {
   }
 }
 
-@keyframes twinkle {
-  0% {
-    scale: 1;
-  }
-  100% {
-    scale: 1.3;
-  }
-}
-
-:root {
-  --shake: 2deg;
-}
-
-@keyframes shake {
-  0% {
-    rotate: 0;
-  }
-  20% {
-    rotate: var(--shake);
-  }
-  40% {
-    rotate: calc(-1 * var(--shake));
-  }
-  60% {
-    rotate: var(--shake);
-  }
-  80% {
-    rotate: calc(-1 * var(--shake));
-  }
-  100% {
-    rotate: 0;
-  }
-}
 
 #asperox-animation {
   background: url(https://hygiene247.com/wp-content/uploads/2026/11/Teal-and-Cream-Flowing-Gradient-Waves.webp) no-repeat;
@@ -271,5 +267,39 @@ p {
     }
   }
   @media (max-width: 481px) {
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.3;
+  }
+}
+
+:root {
+  --shake: 2deg;
+}
+
+@keyframes shake {
+  0% {
+    rotate: 0;
+  }
+  20% {
+    rotate: var(--shake);
+  }
+  40% {
+    rotate: calc(-1 * var(--shake));
+  }
+  60% {
+    rotate: var(--shake);
+  }
+  80% {
+    rotate: calc(-1 * var(--shake));
+  }
+  100% {
+    rotate: 0;
   }
 }

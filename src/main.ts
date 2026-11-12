@@ -7,6 +7,17 @@ const initSlider = () => {
   if (!slider) throw new Error("slider not found")
   slider.classList.add("active")
 
+  const next = slider.querySelector(".js-next")
+  const prev = slider.querySelector(".js-prev")
+  const slides = Array.from(slider.querySelectorAll(".slide"))
+  let activeSlide = 0;
+
+  next.addEventListener("click", () => {
+    activeSlide = (activeSlide + 1) % slides.length
+    slides.forEach(s => s.classList.remove("active"))
+    slides.at(activeSlide).classList.add("active")
+  })
+
   const asperox = slider.querySelector("#asperox-animation");
   if (asperox) {
     const video = asperox.querySelector("video")
