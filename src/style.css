@@ -251,10 +251,9 @@ p {
   }
 
   @media (max-width: 769px) {
-    flex-direction: column;
+    --font-scale: .5;
     height: unset;
     background-size: cover;
-    gap: 1rem;
     padding: 1rem;
     .center {
       gap: 1rem;
@@ -272,6 +271,6 @@ p {
 
   }
   @media (max-width: 489px) {
-    --font-scale: .6;
+    background: red;
   }
 }
