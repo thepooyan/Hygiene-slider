@@ -21,8 +21,8 @@ const initSlider = () => {
     slides.forEach(s => s.classList.remove("active"))
     slides.at(activeSlide.index).classList.add("active")
   }
-  next?.addEventListener("click", () => {activeSlide.next(); show_active_slide()})
-  prev?.addEventListener("click", () => {activeSlide.prev(); show_active_slide()})
+  next?.addEventListener("click", () => { activeSlide.next(); show_active_slide() })
+  prev?.addEventListener("click", () => { activeSlide.prev(); show_active_slide() })
 
   const asperox = slider.querySelector("#asperox-animation");
   if (asperox) {
