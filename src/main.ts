@@ -11,18 +11,20 @@ const initSlider = () => {
   const prev = slider.querySelector(".js-prev")
   const slides = Array.from(slider.querySelectorAll(".slide"))
 
-  let activeSlide = new class {
+  let slider_control = new class {
     index = 0
-    next = () => this.index = (this.index + 1) % slides.length 
-    prev = () => this.index = (this.index - 1) % slides.length 
+    next_index = () => this.index = (this.index + 1) % slides.length 
+    prev_index = () => this.index = (this.index - 1) % slides.length 
+    show_active_slide = () => {
+      slides.forEach(s => s.classList.remove("active"))
+      slides.at(this.index).classList.add("active")
+    }
+    next = () => { this.next_index(); this.show_active_slide() }
+    prev = () => { this.prev_index(); this.show_active_slide() }
   }
 
-  const show_active_slide = () => {
-    slides.forEach(s => s.classList.remove("active"))
-    slides.at(activeSlide.index).classList.add("active")
-  }
-  next?.addEventListener("click", () => { activeSlide.next(); show_active_slide() })
-  prev?.addEventListener("click", () => { activeSlide.prev(); show_active_slide() })
+  next?.addEventListener("click", () => slider_control.next() )
+  prev?.addEventListener("click", () => slider_control.prev() )
 
   const asperox = slider.querySelector("#asperox-animation");
   if (asperox) {
