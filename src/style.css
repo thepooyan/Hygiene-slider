@@ -167,7 +167,7 @@ p {
 
         .twinkle {
           color: var(--yellow);
-          width: 1.7rem;
+          width: calc(1.7rem * var(--font-scale));
           animation: twinkle 1s alternate infinite;
         }
 
@@ -255,6 +255,7 @@ p {
     height: unset;
     background-size: cover;
     padding: 1rem;
+    gap: .3rem;
     .center {
       gap: 1rem;
       .text-placeholder {
@@ -268,9 +269,8 @@ p {
       margin: auto;
       max-width: 20rem;
     }
-
   }
-  @media (max-width: 489px) {
-    background: red;
+  @media (max-width: 481px) {
+    padding: .5rem;
   }
 }
