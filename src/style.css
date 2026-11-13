@@ -95,6 +95,9 @@ body {
       max-height: 100%;
       max-width: 100%;
       border: 5px solid white;
+      background: white;
+      aspect-ratio: 2/2.5;
+      width: 15rem;
       border-radius: .5rem;
       display: block;
     }
