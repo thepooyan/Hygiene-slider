@@ -16,11 +16,18 @@ body {
   display: flex;
   position: relative;
   min-height: calc(25rem * var(--scale));
-  background: gray;
 
   .slide {
+    position: absolute;
+    user-select: none;
+    transition: all .2s;
+    width: 100%;
+    height: 100%;
+
     &:not(.active) {
-      display: none;
+      opacity: 0;
+      filter: blur(.5rem) brightness(0.5);
+      scale: .99;
     }
   }
   .controls {
