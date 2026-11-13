@@ -16,6 +16,7 @@ body {
   display: flex;
   position: relative;
   min-height: calc(25rem * var(--scale));
+  overflow: hidden;
 
   .slide {
     position: absolute;
