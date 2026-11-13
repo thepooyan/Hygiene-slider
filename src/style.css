@@ -74,6 +74,12 @@ body {
   &:not(.active) {
     filter: grayscale(1) blur(9px);
   }
+  @media (max-width: 1025px) {
+    min-height: 20rem;
+  }
+  @media (max-width: 769px) {
+    min-height: 15rem;
+  }
 }
 
 
