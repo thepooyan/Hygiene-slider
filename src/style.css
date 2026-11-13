@@ -10,6 +10,18 @@ body {
   p {
     margin: 0;
   }
+  .generic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    font-size: 1.5rem;
+    font-weight: 900;
+
+    &:nth-child(2) {
+      background: green;
+    }
+  }
 }
 
 #slider {
