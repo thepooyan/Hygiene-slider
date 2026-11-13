@@ -26,15 +26,16 @@ const initSlider = () => {
   const asperox = slider.querySelector("#asperox-animation");
   if (!asperox) throw new Error("asperox not found")
   const video = asperox.querySelector("video")
+  if (!video) throw new Error("asperox has no video")
   const texts = asperox.querySelectorAll(".text")
   const bottles = asperox.querySelectorAll(".bottle img")
   const timing = [0,2.5,3,2,2.5];
 
-  video.addEventListener("ended", () => slider_control.next());
+  video?.addEventListener("ended", () => slider_control.next());
 
   const start_asperox_animation = () => {
     video.currentTime = 0
-    video.play();
+    video?.play();
 
     timing.reduce((prev, current, index) => {
       uniqe_timeout(() => {
@@ -52,12 +53,12 @@ const initSlider = () => {
 
   let slider_control = new class {
     index = 0
-    timer = null
+    timer:number|null = null
     next_index = () => this.index = (this.index + 1) % slides.length 
     prev_index = () => this.index = (this.index - 1) % slides.length 
     show_active_slide = () => {
       slides.forEach(s => s.classList.remove("active"))
-      slides.at(this.index).classList.add("active")
+      slides.at(this.index)?.classList.add("active")
     }
     next = () => { this.next_index(); this.show_active_slide(); this.slide_cleanup() }
     prev = () => { this.prev_index(); this.show_active_slide(); this.slide_cleanup() }
@@ -65,14 +66,14 @@ const initSlider = () => {
       if (this.timer) clearTimeout(this.timer)
       const current_slide = slides.at(this.index);
       // handle duration
-      const duration = current_slide.getAttribute("data-duration");
+      const duration = current_slide?.getAttribute("data-duration");
       if (duration) {
         this.timer = setTimeout(() => {
           this.next()
         }, parseInt(duration) * 1000)
       }
       // handle asperox video play
-      if (current_slide.id === "asperox-animation") {
+      if (current_slide?.id === "asperox-animation") {
         start_asperox_animation()
       }
     }
