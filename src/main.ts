@@ -13,14 +13,24 @@ const initSlider = () => {
 
   let slider_control = new class {
     index = 0
+    timer = null
     next_index = () => this.index = (this.index + 1) % slides.length 
     prev_index = () => this.index = (this.index - 1) % slides.length 
     show_active_slide = () => {
       slides.forEach(s => s.classList.remove("active"))
       slides.at(this.index).classList.add("active")
     }
-    next = () => { this.next_index(); this.show_active_slide() }
-    prev = () => { this.prev_index(); this.show_active_slide() }
+    next = () => { this.next_index(); this.show_active_slide(); this.set_slide_timer() }
+    prev = () => { this.prev_index(); this.show_active_slide(); this.set_slide_timer() }
+    set_slide_timer = () => {
+      if (this.timer) clearTimeout(this.timer)
+      const duration = slides.at(this.index).getAttribute("data-duration")
+      if (duration) {
+        this.timer = setTimeout(() => {
+          this.next()
+        }, parseInt(duration) * 1000)
+      }
+    }
   }
 
   next?.addEventListener("click", () => slider_control.next() )
@@ -33,7 +43,8 @@ const initSlider = () => {
     const bottles = asperox.querySelectorAll(".bottle img")
     const timing = [0,2.5,3,2,2.5];
 
-    video?.play()
+    video?.play();
+    video?.addEventListener("ended", () => slider_control.next());
 
     timing.reduce((prev, current, index) => {
       setTimeout(() => {
