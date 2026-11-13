@@ -1,3 +1,15 @@
+const InitUniqueTimeout = () => {
+  let databse = new Map<number,number>();
+  return (fn: () => void, timeout: number, id: number) => {
+    const already = databse.get(id)
+    if (already) clearTimeout(already)
+    let obj = setTimeout(fn, timeout)
+    databse.set(id, obj)
+  }
+}
+
+const uniqe_timeout = InitUniqueTimeout()
+
 window.addEventListener("load", () => {
   setTimeout(initSlider, 0)
 })
@@ -12,30 +24,31 @@ const initSlider = () => {
   const slides = Array.from(slider.querySelectorAll(".slide"))
 
   const asperox = slider.querySelector("#asperox-animation");
-  const init_asperox_animation = () => {
-    if (asperox) {
-      const video = asperox.querySelector("video")
-      const texts = asperox.querySelectorAll(".text")
-      const bottles = asperox.querySelectorAll(".bottle img")
-      const timing = [0,2.5,3,2,2.5];
+  if (!asperox) throw new Error("asperox not found")
+  const video = asperox.querySelector("video")
+  const texts = asperox.querySelectorAll(".text")
+  const bottles = asperox.querySelectorAll(".bottle img")
+  const timing = [0,2.5,3,2,2.5];
 
-      video?.play();
-      video?.addEventListener("ended", () => slider_control.next());
+  video.addEventListener("ended", () => slider_control.next());
 
-      timing.reduce((prev, current, index) => {
-        setTimeout(() => {
-          const text = Array.from(texts).at(index-1);
-          const bottle = Array.from(bottles).at(index-1);
-          texts.forEach(t => t.classList.remove("active"))
-          bottles.forEach(t => t.classList.remove("active"))
-          text?.classList.add("active")
-          bottle?.classList.add("active")
-        }, prev * 1000)
-        return prev + current
-      })
-    }
+  const start_asperox_animation = () => {
+    video.currentTime = 0
+    video.play();
+
+    timing.reduce((prev, current, index) => {
+      uniqe_timeout(() => {
+        const text = Array.from(texts).at(index-1);
+        const bottle = Array.from(bottles).at(index-1);
+        texts.forEach(t => t.classList.remove("active"))
+        bottles.forEach(t => t.classList.remove("active"))
+        text?.classList.add("active")
+        bottle?.classList.add("active")
+      }, prev * 1000, index)
+      return prev + current
+    })
   }
-  init_asperox_animation()
+  start_asperox_animation()
 
   let slider_control = new class {
     index = 0
@@ -49,19 +62,18 @@ const initSlider = () => {
     next = () => { this.next_index(); this.show_active_slide(); this.slide_cleanup() }
     prev = () => { this.prev_index(); this.show_active_slide(); this.slide_cleanup() }
     slide_cleanup = () => {
+      if (this.timer) clearTimeout(this.timer)
       const current_slide = slides.at(this.index);
       // handle duration
       const duration = current_slide.getAttribute("data-duration");
       if (duration) {
-        if (this.timer) clearTimeout(this.timer)
         this.timer = setTimeout(() => {
           this.next()
         }, parseInt(duration) * 1000)
       }
-      // handle video play
-      const id = current_slide.getAttribute("id")
-      if (id === "asperox-animation") {
-        init_asperox_animation()
+      // handle asperox video play
+      if (current_slide.id === "asperox-animation") {
+        start_asperox_animation()
       }
     }
   }
