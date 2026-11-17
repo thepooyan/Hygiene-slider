@@ -23,6 +23,8 @@ const initSlider = () => {
   const prev = slider.querySelector(".js-prev")
   const slides = Array.from(slider.querySelectorAll(".slide"))
 
+  const welcome_video = slider.querySelector("#welcome").querySelector("video")
+
   const asperox = slider.querySelector("#asperox-animation");
   if (!asperox) throw new Error("asperox not found")
   const video = asperox.querySelector("video")
@@ -75,6 +77,10 @@ const initSlider = () => {
       // handle asperox video play
       if (current_slide?.id === "asperox-animation") {
         start_asperox_animation()
+      }
+      if (current_slide?.id === "welcome") {
+        welcome_video.currentTime = 0
+        welcome_video.play()
       }
     }
   }
