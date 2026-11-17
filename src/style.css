@@ -304,6 +304,8 @@ body {
     display: block;
     margin: auto;
     height: 100%;
+    width: 100%;
+    max-width: max-content;
     mask-image: linear-gradient(
       to right,
       transparent 0%,
