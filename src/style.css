@@ -299,6 +299,22 @@ body {
   }
 }
 
+#welcome {
+  video {
+    display: block;
+    margin: auto;
+    height: 100%;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 2%,
+      black 98%,
+      transparent 100%
+    );
+  }
+  background: #FDE6D1;
+}
+
 @keyframes twinkle {
   0% {
     scale: 1;
