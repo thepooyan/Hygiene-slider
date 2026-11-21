@@ -17,7 +17,6 @@ window.addEventListener("load", () => {
 const initSlider = () => {
   const slider = document.getElementById("slider")
   if (!slider) throw new Error("slider not found")
-  slider.classList.add("active")
 
   const next = slider.querySelector(".js-next")
   const prev = slider.querySelector(".js-prev")
@@ -35,8 +34,10 @@ const initSlider = () => {
   const timing = [0,2.5,3,2,2.5];
 
   const start_fairy_animation = () => {
-    fairy.currentTime = 0
-    fairy.play()
+    if (fairy) {
+      fairy.currentTime = 0
+      fairy.play()
+    }
   }
   const start_asperox_animation = () => {
     video.currentTime = 0
@@ -96,4 +97,7 @@ const initSlider = () => {
   next?.addEventListener("click", () => slider_control.next() )
   prev?.addEventListener("click", () => slider_control.prev() )
 
+  const initial_duration = parseInt(asperox.getAttribute("data-duration")) ?? 10;
+  setTimeout(() => { slider_control.next() }, initial_duration * 1000)
+  slider.classList.add("active")
 }
