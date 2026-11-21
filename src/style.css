@@ -254,6 +254,20 @@ body {
     }
   }
 
+  &.fairy {
+    .bottle img {
+      width: 18rem;
+      height: 12rem;
+      transform: perspective(500px) rotateY(16deg) rotateX(10deg);
+      cursor: pointer;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+
   @media (max-width: 1200px) {
     --font-scale: .8;
     --scale: .8;
