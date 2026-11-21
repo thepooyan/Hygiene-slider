@@ -65,11 +65,11 @@ const initSlider = () => {
     show_active_slide = () => {
       slides.forEach(s => s.classList.remove("active"))
       slides.at(this.index)?.classList.add("active")
-      slides.at(this.index).querySelectorAll("[data-src]").forEach(s => {
+      slides.at(this.index)?.querySelectorAll("[data-src]").forEach(s => {
         if (s instanceof HTMLSourceElement && s.parentNode instanceof HTMLMediaElement) {
           s.parentNode.load()
         }
-        s.setAttribute("src", s.getAttribute("data-src"))
+        s.setAttribute("src", s.getAttribute("data-src") || "")
         s.removeAttribute("data-src")
       })
     }
@@ -104,7 +104,7 @@ const initSlider = () => {
   next?.addEventListener("click", () => slider_control.next() )
   prev?.addEventListener("click", () => slider_control.prev() )
 
-  const initial_duration = parseInt(asperox.getAttribute("data-duration")) ?? 10;
+  const initial_duration = parseInt(asperox.getAttribute("data-duration") ?? "10");
   setTimeout(() => { slider_control.next() }, initial_duration * 1000)
   slider.classList.add("active")
 }
