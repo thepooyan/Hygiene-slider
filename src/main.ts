@@ -106,5 +106,9 @@ const initSlider = () => {
 
   const initial_duration = parseInt(asperox.getAttribute("data-duration") ?? "10");
   setTimeout(() => { slider_control.next() }, initial_duration * 1000)
+  asperox.querySelectorAll("[data-src]").forEach(s => {
+    s.setAttribute("src", s.getAttribute("data-src") || "")
+    s.removeAttribute("data-src")
+  })
   slider.classList.add("active")
 }
