@@ -29,12 +29,15 @@ const initSlider = () => {
   if (!asperox) throw new Error("asperox not found")
   const video = asperox.querySelector("video")
   if (!video) throw new Error("asperox has no video")
+  const fairy = slider.querySelector("#fairy-animation video") as HTMLVideoElement;
   const texts = asperox.querySelectorAll(".text")
   const bottles = asperox.querySelectorAll(".bottle img")
   const timing = [0,2.5,3,2,2.5];
 
-  video?.addEventListener("ended", () => slider_control.next());
-
+  const start_fairy_animation = () => {
+    fairy.currentTime = 0
+    fairy.play()
+  }
   const start_asperox_animation = () => {
     video.currentTime = 0
     video?.play();
@@ -77,6 +80,9 @@ const initSlider = () => {
       // handle asperox video play
       if (current_slide?.id === "asperox-animation") {
         start_asperox_animation()
+      }
+      if (current_slide?.id === "fairy-animation") {
+        start_fairy_animation()
       }
       if (current_slide?.id === "welcome") {
         if (welcome_video) {
