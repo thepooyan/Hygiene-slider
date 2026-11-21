@@ -65,6 +65,13 @@ const initSlider = () => {
     show_active_slide = () => {
       slides.forEach(s => s.classList.remove("active"))
       slides.at(this.index)?.classList.add("active")
+      slides.at(this.index).querySelectorAll("[data-src]").forEach(s => {
+        if (s instanceof HTMLSourceElement && s.parentNode instanceof HTMLMediaElement) {
+          s.parentNode.load()
+        }
+        s.setAttribute("src", s.getAttribute("data-src"))
+        s.removeAttribute("data-src")
+      })
     }
     next = () => { this.next_index(); this.show_active_slide(); this.slide_cleanup() }
     prev = () => { this.prev_index(); this.show_active_slide(); this.slide_cleanup() }
