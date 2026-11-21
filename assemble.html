@@ -1,0 +1,501 @@
+<style>
+  :root {
+    --scale: 1;
+  }
+  .generic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 900;
+
+    &:nth-child(2) {
+      background: green;
+    }
+  }
+  #slider {
+    display: flex;
+    position: relative;
+    min-height: calc(25rem * var(--scale));
+    overflow: hidden;
+
+    .slide {
+      position: absolute;
+      user-select: none;
+      transition: all .2s;
+      width: 100%;
+      height: 100%;
+
+      &:not(.active) {
+        opacity: 0;
+        filter: blur(.5rem) brightness(0.5);
+        scale: .99;
+      }
+    }
+    .controls {
+      .left,.right {
+        position: absolute;
+        z-index: 20;
+        inset-block: 0;
+        margin: auto;
+        font-size: 2rem;
+        background: #3f3f3f78;
+        color: white;
+        padding: 1.6rem .5rem;
+        cursor: pointer;
+        --radius: 1rem;
+        border-radius: 0 var(--radius) var(--radius) 0;
+        opacity: .8;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .left {
+        left: 0;
+      }
+      .right {
+        rotate: 180deg;
+        right: 0;
+      }
+    }
+
+    transition: filter .2s;
+    &:not(.active) {
+      filter: grayscale(1) blur(9px);
+    }
+    @media (max-width: 1025px) {
+      min-height: 20rem;
+    }
+    @media (max-width: 769px) {
+      min-height: 15rem;
+    }
+  }
+
+
+#asperox-animation {
+  background: url(https://hygiene247.com/wp-content/uploads/2026/11/Teal-and-Cream-Flowing-Gradient-Waves.webp) no-repeat;
+  background-size: 100% auto;
+  background-position: 0 58%;
+  height: calc(25rem * var(--scale));
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  --green: #03383D;
+  --yellow: #FDC833;
+  --red: #BF0B0C;
+  --font-scale: 1;
+  position: relative;
+
+  &::before {
+    content: "";
+    background: url(https://hygiene247.com/wp-content/uploads/2026/11/Potted-Greenery-on-Marble-Countertop.webp) no-repeat;
+    background-size: contain;
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    mask-image: linear-gradient(to left, transparent 64%, black 77%);
+  }
+
+  .video {
+    flex: 20%;
+    margin: calc(2rem * var(--scale));
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    video {
+      max-height: 100%;
+      max-width: 100%;
+      border: 5px solid white;
+      background: white;
+      aspect-ratio: 2/2.5;
+      width: 15rem;
+      border-radius: .5rem;
+      display: block;
+    }
+  }
+
+  .bottle {
+    flex: 13%;
+    z-index: 20;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    img {
+      margin-bottom: calc(2rem * var(--scale));
+      width: calc(8rem * var(--scale));
+      height: calc(22rem * var(--scale));
+      filter: drop-shadow(2px 4px 6px #00000080);
+      position: absolute;
+      left: calc(5rem * var(--scale));
+      transition: all .4s, opacity .2s;
+
+      &.active {
+        animation: shake .4s 1s;
+      }
+
+      &:not(.active) {
+        opacity: 0;
+        scale: .8;
+        transform-origin: bottom;
+        translate: 5rem 0;
+      }
+    }
+  }
+
+  .center {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 20;
+
+    .text-placeholder {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      position: relative;
+
+      .text {
+        position: absolute;
+        width: max-content;
+        text-align: center;
+        font-weight: bold;
+        background: white;
+        font-size: calc(var(--font-scale) * 1rem);
+        color: var(--green);
+        padding: calc(.3rem * var(--scale)) calc(1rem * var(--scale));
+        padding-right: calc(.5rem * var(--scale));
+        border-radius: 20rem;
+        border: calc(3px * var(--scale)) solid var(--green);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+
+        .twinkle {
+          color: var(--yellow);
+          width: calc(1.7rem * var(--font-scale));
+          animation: twinkle 1s alternate infinite;
+        }
+
+        transition: .2s;
+
+        &:not(.active) {
+          opacity: 0;
+          translate: 9px 0;
+        }
+      }
+    }
+
+    .title {
+      text-align: center;
+      color: var(--green);
+      font-size: calc(var(--font-scale) * 3rem);
+      font-weight: 800;
+      -webkit-text-stroke: calc(15px * var(--font-scale)) white;
+      paint-order: stroke fill;
+      letter-spacing: -3px;
+      filter: drop-shadow(8px 10px 2px #00000045);
+      line-height: 1.2;
+      rotate: -3deg;
+
+      em {
+        display: block;
+        color: var(--red);
+        font-style: unset;
+      }
+    }
+
+    .sticker {
+      background: var(--yellow);
+      color: var(--green);
+      font-weight: bold;
+      padding: calc(.5rem * var(--scale)) 0;
+      padding-right: calc(3px * var(--scale));
+      transform: perspective(500px) rotateY(6deg);
+      rotate: -3deg;
+      font-size: calc(var(--font-scale) * 2rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      text-shadow: 1px 1px 3px #00000075;
+
+      .trapezoid {
+        position: absolute;
+        color: var(--yellow);
+        top: 0;
+        height: 100%;
+
+        &.left {
+          right: calc(100% - 1px);
+        }
+
+        &.right {
+          left: calc(100% - 1px);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    --font-scale: .8;
+    --scale: .8;
+  }
+
+  @media (max-width: 1025px) {
+    &::before {
+      content: unset;
+    }
+    .bottle {
+      flex: 1%;
+
+      img {
+        left: -2rem;
+        rotate: 15deg;
+        animation: unset !important;
+      }
+    }
+
+  }
+
+  @media (max-width: 769px) {
+    --font-scale: .5;
+    height: unset;
+    background-size: cover;
+    padding: 1rem;
+    gap: .3rem;
+    .center {
+      gap: 1rem;
+      .text-placeholder {
+        height: 2.4rem;
+      }
+    }
+    .bottle {
+      display: none;
+    }
+    .video {
+      margin: auto;
+      max-width: 20rem;
+    }
+  }
+  @media (max-width: 481px) {
+  }
+  }
+
+  @keyframes twinkle {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.3;
+  }
+  }
+
+  :root {
+  --shake: 2deg;
+  }
+
+  @keyframes shake {
+  0% {
+    rotate: 0;
+  }
+  20% {
+    rotate: var(--shake);
+  }
+  40% {
+    rotate: calc(-1 * var(--shake));
+  }
+  60% {
+    rotate: var(--shake);
+  }
+  80% {
+    rotate: calc(-1 * var(--shake));
+  }
+  100% {
+    rotate: 0;
+  }
+  }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="display: none;" hidden>
+  <symbol id="icon-twinkle">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="currentColor" d="M10.6 9.6L9 15L7.4 9.6L2 8l5.4-1.6L9 1l1.6 5.4L16 8zm6.4 4.6l4-2.2l-2.2 4l2.2 4l-4-2.2l-4 2.2l2.2-4l-2.2-4zM10 16l-1.7 3l1.7 3l-3-1.7L4 22l1.7-3L4 16l3 1.7z" />
+  </symbol>
+  <symbol id="icon-chevron-left">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 6l-6 6l6 6" />
+  </symbol>
+</svg>
+<div id="slider">
+  <div class="slide active" id="asperox-animation">
+    <div class="bottle">
+      <img src="https://hygiene247.com/wp-content/uploads/2026/11/zard.webp" class="active"/>
+      <img src="https://hygiene247.com/wp-content/uploads/2026/11/abi.webp"/>
+      <img src="https://hygiene247.com/wp-content/uploads/2026/11/narenji.webp"/>
+      <img src="https://hygiene247.com/wp-content/uploads/2026/11/sabz.webp"/>
+    </div>
+
+    <div class="center">
+      <p class="title">
+        پاک کننده های سری 
+        <em>
+          Retro اسپروکس
+        </em>
+      </p>
+      <p class="sticker">
+          <svg class="trapezoid left" viewBox="-15 -32 15 32" preserveAspectRatio="none" width="1em"  >
+            <g transform="scale(1,-1)">
+              <path d="M 0 0 H -3.7944 C -5.1066 0 -6.2665 0.8528 -6.6579 2.1052 L -14.7829 28.1052 C -15.3865 30.037 -13.9433 32 -11.9194 32 H 0 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <svg class="trapezoid right" viewBox="-15 0 15 32" preserveAspectRatio="none" width="1em" style="transform: scale(-1)">
+            <path d="M 0 0 H -3.7944 C -5.1066 0 -6.2665 0.8528 -6.6579 2.1052 L -14.7829 28.1052 C -15.3865 30.037 -13.9433 32 -11.9194 32 H 0 Z"
+              fill="currentColor"
+            />
+          </svg>
+        بر پایه سرکه سفید
+      </p>
+      <div class="text-placeholder">
+        <p class="text t1 active">
+          <svg class="twinkle" viewBox="0 0 24 24">
+            <use href="#icon-twinkle"/>
+          </svg>
+          پاک کننده سینک و دوش
+        </p>
+        <p class="text t2">
+          <svg class="twinkle" viewBox="0 0 24 24">
+            <use href="#icon-twinkle"/>
+          </svg>
+          پاک کننده فر، اجاق گاز و هود
+        </p>
+        <p class="text t3">
+          <svg class="twinkle" viewBox="0 0 24 24">
+            <use href="#icon-twinkle"/>
+          </svg>
+          پاک کننده سطوح سرامیکی و کف</p>
+        <p class="text t4">
+          <svg class="twinkle" viewBox="0 0 24 24">
+            <use href="#icon-twinkle"/>
+          </svg>
+          پاک کننده چربی و آلودگی
+        </p>
+      </div>
+    </div>
+
+    <div class="video">
+      <video muted>
+        <source src="https://hygiene247.com/wp-content/uploads/2026/11/VID_20261108_115232_249.mp4">
+      </video>
+    </div>
+
+  </div>
+  <div class="slide generic" data-duration="4">
+    اسلاید تستی ۱
+  </div>
+  <div class="slide generic" data-duration="2">
+    اسلاید تستی ۲
+  </div>
+  <div class="controls">
+    <svg width="1em" height="1em" viewBox="0 0 24 24" class="left js-prev">
+      <use href="#icon-chevron-left"/>
+    </svg>
+    <svg width="1em" height="1em" viewBox="0 0 24 24" class="right js-next">
+      <use href="#icon-chevron-left"/>
+    </svg>
+  </div>
+</div>
+<script>
+  const InitUniqueTimeout = () => {
+    let databse = new Map();
+    return (fn, timeout, id) => {
+      const already = databse.get(id)
+      if (already) clearTimeout(already)
+      let obj = setTimeout(fn, timeout)
+      databse.set(id, obj)
+    }
+  }
+
+  const uniqe_timeout = InitUniqueTimeout()
+
+  window.addEventListener("load", () => {
+    setTimeout(initSlider, 0)
+  })
+
+  const initSlider = () => {
+    const slider = document.getElementById("slider")
+    if (!slider) throw new Error("slider not found")
+    slider.classList.add("active")
+
+    const next = slider.querySelector(".js-next")
+    const prev = slider.querySelector(".js-prev")
+    const slides = Array.from(slider.querySelectorAll(".slide"))
+
+    const asperox = slider.querySelector("#asperox-animation");
+    if (!asperox) throw new Error("asperox not found")
+    const video = asperox.querySelector("video")
+    if (!video) throw new Error("asperox has no video")
+    const texts = asperox.querySelectorAll(".text")
+    const bottles = asperox.querySelectorAll(".bottle img")
+    const timing = [0,2.5,3,2,2.5];
+
+    video?.addEventListener("ended", () => slider_control.next());
+
+    const start_asperox_animation = () => {
+      video.currentTime = 0
+      video?.play();
+
+      timing.reduce((prev, current, index) => {
+        uniqe_timeout(() => {
+          const text = Array.from(texts).at(index-1);
+          const bottle = Array.from(bottles).at(index-1);
+          texts.forEach(t => t.classList.remove("active"))
+          bottles.forEach(t => t.classList.remove("active"))
+          text?.classList.add("active")
+          bottle?.classList.add("active")
+        }, prev * 1000, index)
+        return prev + current
+      })
+    }
+    start_asperox_animation()
+
+    let slider_control = new class {
+      index = 0
+      timer = null
+      next_index = () => this.index = (this.index + 1) % slides.length 
+      prev_index = () => this.index = (this.index - 1) % slides.length 
+      show_active_slide = () => {
+        slides.forEach(s => s.classList.remove("active"))
+        slides.at(this.index)?.classList.add("active")
+      }
+      next = () => { this.next_index(); this.show_active_slide(); this.slide_cleanup() }
+      prev = () => { this.prev_index(); this.show_active_slide(); this.slide_cleanup() }
+      slide_cleanup = () => {
+        if (this.timer) clearTimeout(this.timer)
+        const current_slide = slides.at(this.index);
+        // handle duration
+        const duration = current_slide?.getAttribute("data-duration");
+        if (duration) {
+          this.timer = setTimeout(() => {
+            this.next()
+          }, parseInt(duration) * 1000)
+        }
+        // handle asperox video play
+        if (current_slide?.id === "asperox-animation") {
+          start_asperox_animation()
+        }
+      }
+    }
+    next?.addEventListener("click", () => slider_control.next() )
+    prev?.addEventListener("click", () => slider_control.prev() )
+  }
+</script>
