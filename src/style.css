@@ -258,17 +258,29 @@ body {
     &::before {
       content: unset;
     }
-    .bottle img {
-      width: 18rem;
-      height: 12rem;
-      transform: perspective(500px) rotateY(16deg) rotateX(10deg);
-      cursor: pointer;
-      left: 0;
+    .bottle {
+      align-items: center;
+      img {
+        width: 140%;
+        height: unset;
+        max-width: 30rem;
+        transform: perspective(500px) rotateY(16deg) rotateX(10deg);
+        animation: unset;
+        cursor: pointer;
+        left: 0;
 
-      &:hover {
-        transform: none;
+        &:hover {
+          transform: none;
+        }
       }
     }
+
+    @media (max-width: 1200px) {}
+    @media (max-width: 1025px) {
+      .bottle {display: none;}
+    }
+    @media (max-width: 769px) {}
+    @media (max-width: 481px) {}
   }
 
 
