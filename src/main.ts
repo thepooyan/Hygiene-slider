@@ -75,7 +75,7 @@ const initSlider = () => {
       const duration = current_slide?.getAttribute("data-duration");
       if (duration) {
         this.timer = setTimeout(() => {
-          // this.next()
+          this.next()
         }, parseInt(duration) * 1000)
       }
       // handle asperox video play
@@ -98,7 +98,6 @@ const initSlider = () => {
   prev?.addEventListener("click", () => slider_control.prev() )
 
   const initial_duration = parseInt(asperox.getAttribute("data-duration")) ?? 10;
-  // setTimeout(() => { slider_control.next() }, initial_duration * 1000)
+  setTimeout(() => { slider_control.next() }, initial_duration * 1000)
   slider.classList.add("active")
-  slider_control.next()
 }

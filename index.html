@@ -25,9 +25,9 @@
       <div class="slide retro-banner active" id="asperox-animation" data-duration="10">
         <div class="bottle">
           <img src="yellow.webp" class="active"/>
-          <img src="blue.webp"/>
-          <img src="orange.webp"/>
-          <img src="green.webp"/>
+          <img data-src="blue.webp"/>
+          <img data-src="orange.webp"/>
+          <img data-src="green.webp"/>
         </div>
 
         <div class="center">
@@ -89,7 +89,7 @@
 
       <div class="slide retro-banner fairy" id="fairy-animation" data-duration="7">
         <div class="bottle">
-          <img src="fairy.webp" class="active"/>
+          <img data-src="fairy.webp" class="active"/>
         </div>
 
         <div class="center">
@@ -124,14 +124,14 @@
 
         <div class="video">
           <video muted>
-            <source src="/fairy-video.mp4">
+            <source data-src="/fairy-video.mp4">
           </video>
         </div>
 
       </div>
       <div class="slide" data-duration="8" id="welcome">
         <video muted autoplay>
-          <source src="/welcome-video.mp4">
+          <source data-src="/welcome-video.mp4">
         </video>
       </div>
       <div class="controls">
@@ -141,8 +141,6 @@
         <svg width="1em" height="1em" viewBox="0 0 24 24" class="right js-next">
           <use href="#icon-chevron-left"/>
         </svg>
-
-        
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
