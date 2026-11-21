@@ -41,6 +41,7 @@ body {
       opacity: 0;
       filter: blur(.5rem) brightness(0.5);
       scale: .99;
+      visibility: hidden;
     }
   }
   .controls {
@@ -111,7 +112,7 @@ body {
 
   .video {
     flex: 20%;
-    margin: calc(2rem * var(--scale));
+    margin: calc(.6rem * var(--scale));
     z-index: 20;
     display: flex;
     justify-content: center;
@@ -123,7 +124,6 @@ body {
       border: 5px solid white;
       background: white;
       aspect-ratio: 2/2.5;
-      width: 15rem;
       border-radius: .5rem;
       display: block;
     }
@@ -255,11 +255,15 @@ body {
   }
 
   &.fairy {
+    &::before {
+      content: unset;
+    }
     .bottle img {
       width: 18rem;
       height: 12rem;
       transform: perspective(500px) rotateY(16deg) rotateX(10deg);
       cursor: pointer;
+      left: 0;
 
       &:hover {
         transform: none;
