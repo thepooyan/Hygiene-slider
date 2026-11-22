@@ -2,13 +2,23 @@
   :root {
     --shake: 2deg;
     --scale: 1;
+    --slider-height: calc(25rem * var(--scale));
+  }
+  .slider_container {
+    height: var(--slider-height);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: -3.2rem;
   }
   #slider {
     direction: rtl;
     display: flex;
     position: relative;
-    min-height: calc(25rem * var(--scale));
+    height: 100%;
     overflow: hidden;
+    position: absolute;
+    width: 100vw;
 
     .slide {
       position: absolute;
@@ -56,10 +66,10 @@
       filter: grayscale(1) blur(9px);
     }
     @media (max-width: 1025px) {
-      min-height: 20rem;
+      --slider-height: 20rem;
     }
     @media (max-width: 769px) {
-      min-height: 15rem;
+      --slider-height: 15rem;
     }
   }
 
@@ -356,6 +366,7 @@
     }
   }
 </style>
+<div class="slider_container">
 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="display: none;" hidden>
   <symbol id="icon-twinkle">
     <path d="M0 0h24v24H0z" fill="none" />
@@ -486,6 +497,7 @@
       <use href="#icon-chevron-left"/>
     </svg>
   </div>
+</div>
 </div>
 <script>
 const InitUniqueTimeout = () => {
