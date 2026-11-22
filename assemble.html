@@ -2,7 +2,7 @@
   :root {
     --shake: 2deg;
     --scale: 1;
-    --slider-height: calc(25rem * var(--scale));
+    --slider-height: calc(30rem * var(--scale));
   }
   .slider_container {
     height: var(--slider-height);
@@ -204,7 +204,7 @@
         font-weight: 800;
         -webkit-text-stroke: calc(15px * var(--font-scale)) white;
         paint-order: stroke fill;
-        letter-spacing: -3px;
+        letter-spacing: -2px;
         filter: drop-shadow(8px 10px 2px #00000045);
         line-height: 1.2;
         rotate: -3deg;
@@ -290,13 +290,15 @@
 
         img {
           left: -2rem;
-          rotate: 15deg;
+          bottom: -3rem;
+          rotate: 25deg;
           animation: unset !important;
         }
       }
-
+      .center {
+        gap: .5rem
+      }
     }
-
     @media (max-width: 769px) {
       --font-scale: .5;
       height: unset;
