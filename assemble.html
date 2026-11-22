@@ -1,21 +1,10 @@
 <style>
   :root {
+    --shake: 2deg;
     --scale: 1;
   }
-  .generic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: red;
-    color: black;
-    font-size: 1.5rem;
-    font-weight: 900;
-
-    &:nth-child(2) {
-      background: green;
-    }
-  }
   #slider {
+    direction: rtl;
     display: flex;
     position: relative;
     min-height: calc(25rem * var(--scale));
@@ -32,6 +21,7 @@
         opacity: 0;
         filter: blur(.5rem) brightness(0.5);
         scale: .99;
+        visibility: hidden;
       }
     }
     .controls {
@@ -73,255 +63,296 @@
     }
   }
 
-
-#asperox-animation {
-  background: url(https://hygiene247.com/wp-content/uploads/2026/11/Teal-and-Cream-Flowing-Gradient-Waves.webp) no-repeat;
-  background-size: 100% auto;
-  background-position: 0 58%;
-  height: calc(25rem * var(--scale));
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  --green: #03383D;
-  --yellow: #FDC833;
-  --red: #BF0B0C;
-  --font-scale: 1;
-  position: relative;
-
-  &::before {
-    content: "";
-    background: url(https://hygiene247.com/wp-content/uploads/2026/11/Potted-Greenery-on-Marble-Countertop.webp) no-repeat;
-    background-size: contain;
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    mask-image: linear-gradient(to left, transparent 64%, black 77%);
-  }
-
-  .video {
-    flex: 20%;
-    margin: calc(2rem * var(--scale));
-    z-index: 20;
+  .retro-banner {
+    background: url(https://hygiene247.com/wp-content/uploads/2026/11/Teal-and-Cream-Flowing-Gradient-Waves.webp) no-repeat;
+    background-size: 100% auto;
+    background-position: 0 58%;
+    height: calc(25rem * var(--scale));
+    overflow-x: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-    video {
-      max-height: 100%;
-      max-width: 100%;
-      border: 5px solid white;
-      background: white;
-      aspect-ratio: 2/2.5;
-      width: 15rem;
-      border-radius: .5rem;
-      display: block;
-    }
-  }
-
-  .bottle {
-    flex: 13%;
-    z-index: 20;
-    display: flex;
-    align-items: flex-end;
+    flex-direction: row-reverse;
+    width: 100%;
+    --green: #03383D;
+    --yellow: #FDC833;
+    --red: #BF0B0C;
+    --font-scale: 1;
     position: relative;
 
-    img {
-      margin-bottom: calc(2rem * var(--scale));
-      width: calc(8rem * var(--scale));
-      height: calc(22rem * var(--scale));
-      filter: drop-shadow(2px 4px 6px #00000080);
+    &::before {
+      content: "";
+      background: url(https://hygiene247.com/wp-content/uploads/2026/11/Potted-Greenery-on-Marble-Countertop.webp) no-repeat;
+      background-size: contain;
+      display: block;
       position: absolute;
-      left: calc(5rem * var(--scale));
-      transition: all .4s, opacity .2s;
-
-      &.active {
-        animation: shake .4s 1s;
-      }
-
-      &:not(.active) {
-        opacity: 0;
-        scale: .8;
-        transform-origin: bottom;
-        translate: 5rem 0;
-      }
+      inset: 0;
+      z-index: 10;
+      mask-image: linear-gradient(to left, transparent 64%, black 77%);
     }
-  }
 
-  .center {
-    display: flex;
-    flex: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    z-index: 20;
-
-    .text-placeholder {
+    .video {
+      flex: 20%;
+      margin: calc(.6rem * var(--scale));
+      z-index: 20;
       display: flex;
       justify-content: center;
-      gap: .5rem;
+      align-items: center;
+
+      video {
+        max-height: 100%;
+        max-width: 100%;
+        border: 5px solid white;
+        background: white;
+        aspect-ratio: 2/2.5;
+        border-radius: .5rem;
+        display: block;
+      }
+    }
+
+    .bottle {
+      flex: 13%;
+      z-index: 20;
+      display: flex;
+      align-items: flex-end;
       position: relative;
 
-      .text {
+      img {
+        margin-bottom: calc(2rem * var(--scale));
+        width: calc(8rem * var(--scale));
+        height: calc(22rem * var(--scale));
+        filter: drop-shadow(2px 4px 6px #00000080);
         position: absolute;
-        width: max-content;
-        text-align: center;
-        font-weight: bold;
-        background: white;
-        font-size: calc(var(--font-scale) * 1rem);
-        color: var(--green);
-        padding: calc(.3rem * var(--scale)) calc(1rem * var(--scale));
-        padding-right: calc(.5rem * var(--scale));
-        border-radius: 20rem;
-        border: calc(3px * var(--scale)) solid var(--green);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: .5rem;
+        left: calc(5rem * var(--scale));
+        transition: all .4s, opacity .2s;
 
-        .twinkle {
-          color: var(--yellow);
-          width: calc(1.7rem * var(--font-scale));
-          animation: twinkle 1s alternate infinite;
+        &.active {
+          animation: shake .4s 1s;
         }
-
-        transition: .2s;
 
         &:not(.active) {
           opacity: 0;
-          translate: 9px 0;
+          scale: .8;
+          transform-origin: bottom;
+          translate: 5rem 0;
         }
       }
     }
 
-    .title {
-      text-align: center;
-      color: var(--green);
-      font-size: calc(var(--font-scale) * 3rem);
-      font-weight: 800;
-      -webkit-text-stroke: calc(15px * var(--font-scale)) white;
-      paint-order: stroke fill;
-      letter-spacing: -3px;
-      filter: drop-shadow(8px 10px 2px #00000045);
-      line-height: 1.2;
-      rotate: -3deg;
-
-      em {
-        display: block;
-        color: var(--red);
-        font-style: unset;
-      }
-    }
-
-    .sticker {
-      background: var(--yellow);
-      color: var(--green);
-      font-weight: bold;
-      padding: calc(.5rem * var(--scale)) 0;
-      padding-right: calc(3px * var(--scale));
-      transform: perspective(500px) rotateY(6deg);
-      rotate: -3deg;
-      font-size: calc(var(--font-scale) * 2rem);
-      font-weight: 900;
-      letter-spacing: -2px;
-      text-shadow: 1px 1px 3px #00000075;
-
-      .trapezoid {
-        position: absolute;
-        color: var(--yellow);
-        top: 0;
-        height: 100%;
-
-        &.left {
-          right: calc(100% - 1px);
-        }
-
-        &.right {
-          left: calc(100% - 1px);
-        }
-      }
-    }
-  }
-
-  @media (max-width: 1200px) {
-    --font-scale: .8;
-    --scale: .8;
-  }
-
-  @media (max-width: 1025px) {
-    &::before {
-      content: unset;
-    }
-    .bottle {
-      flex: 1%;
-
-      img {
-        left: -2rem;
-        rotate: 15deg;
-        animation: unset !important;
-      }
-    }
-
-  }
-
-  @media (max-width: 769px) {
-    --font-scale: .5;
-    height: unset;
-    background-size: cover;
-    padding: 1rem;
-    gap: .3rem;
     .center {
-      gap: 1rem;
+      display: flex;
+      flex: auto;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 20;
+
       .text-placeholder {
-        height: 2.4rem;
+        display: flex;
+        justify-content: center;
+        gap: .5rem;
+        position: relative;
+
+        .text {
+          position: absolute;
+          width: max-content;
+          text-align: center;
+          font-weight: bold;
+          background: white;
+          font-size: calc(var(--font-scale) * 1rem);
+          color: var(--green);
+          padding: calc(.3rem * var(--scale)) calc(1rem * var(--scale));
+          padding-right: calc(.5rem * var(--scale));
+          border-radius: 20rem;
+          border: calc(3px * var(--scale)) solid var(--green);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: .5rem;
+
+          .twinkle {
+            color: var(--yellow);
+            width: calc(1.7rem * var(--font-scale));
+            animation: twinkle 1s alternate infinite;
+          }
+
+          transition: .2s;
+
+          &:not(.active) {
+            opacity: 0;
+            translate: 9px 0;
+          }
+        }
+      }
+
+      .title {
+        text-align: center;
+        color: var(--green);
+        font-size: calc(var(--font-scale) * 3rem);
+        font-weight: 800;
+        -webkit-text-stroke: calc(15px * var(--font-scale)) white;
+        paint-order: stroke fill;
+        letter-spacing: -3px;
+        filter: drop-shadow(8px 10px 2px #00000045);
+        line-height: 1.2;
+        rotate: -3deg;
+
+        em {
+          display: block;
+          color: var(--red);
+          font-style: unset;
+        }
+      }
+
+      .sticker {
+        background: var(--yellow);
+        color: var(--green);
+        font-weight: bold;
+        padding: calc(.5rem * var(--scale)) 0;
+        padding-right: calc(3px * var(--scale));
+        transform: perspective(500px) rotateY(6deg);
+        rotate: -3deg;
+        font-size: calc(var(--font-scale) * 2rem);
+        font-weight: 900;
+        letter-spacing: -2px;
+        text-shadow: 1px 1px 3px #00000075;
+
+        .trapezoid {
+          position: absolute;
+          color: var(--yellow);
+          top: 0;
+          height: 100%;
+
+          &.left {
+            right: calc(100% - 1px);
+          }
+
+          &.right {
+            left: calc(100% - 1px);
+          }
+        }
       }
     }
-    .bottle {
-      display: none;
+
+    &.fairy {
+      &::before {
+        content: unset;
+      }
+      .bottle {
+        align-items: center;
+        img {
+          width: 140%;
+          height: unset;
+          max-width: 30rem;
+          transform: perspective(500px) rotateY(16deg) rotateX(10deg);
+          animation: unset;
+          cursor: pointer;
+          left: 0;
+
+          &:hover {
+            transform: none;
+          }
+        }
+      }
+
+      @media (max-width: 1200px) {}
+      @media (max-width: 1025px) {
+        .bottle {display: none;}
+      }
+      @media (max-width: 769px) {}
+      @media (max-width: 481px) {}
     }
-    .video {
+
+
+    @media (max-width: 1200px) {
+      --font-scale: .8;
+      --scale: .8;
+    }
+
+    @media (max-width: 1025px) {
+      &::before {
+        content: unset;
+      }
+      .bottle {
+        flex: 1%;
+
+        img {
+          left: -2rem;
+          rotate: 15deg;
+          animation: unset !important;
+        }
+      }
+
+    }
+
+    @media (max-width: 769px) {
+      --font-scale: .5;
+      height: unset;
+      background-size: cover;
+      padding: 1rem;
+      gap: .3rem;
+      .center {
+        gap: 1rem;
+        .text-placeholder {
+          height: 2.4rem;
+        }
+      }
+      .bottle {
+        display: none;
+      }
+      .video {
+        margin: auto;
+        max-width: 20rem;
+      }
+    }
+    @media (max-width: 481px) {
+    }
+  }
+
+  #welcome {
+    video {
+      display: block;
       margin: auto;
-      max-width: 20rem;
+      height: 100%;
+      width: 100%;
+      max-width: max-content;
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 2%,
+        black 98%,
+        transparent 100%
+      );
     }
-  }
-  @media (max-width: 481px) {
-  }
+    background: #FDE6D1;
   }
 
   @keyframes twinkle {
-  0% {
-    scale: 1;
+    0% {
+      scale: 1;
+    }
+    100% {
+      scale: 1.3;
+    }
   }
-  100% {
-    scale: 1.3;
-  }
-  }
-
-  :root {
-  --shake: 2deg;
-  }
-
   @keyframes shake {
-  0% {
-    rotate: 0;
-  }
-  20% {
-    rotate: var(--shake);
-  }
-  40% {
-    rotate: calc(-1 * var(--shake));
-  }
-  60% {
-    rotate: var(--shake);
-  }
-  80% {
-    rotate: calc(-1 * var(--shake));
-  }
-  100% {
-    rotate: 0;
-  }
+    0% {
+      rotate: 0;
+    }
+    20% {
+      rotate: var(--shake);
+    }
+    40% {
+      rotate: calc(-1 * var(--shake));
+    }
+    60% {
+      rotate: var(--shake);
+    }
+    80% {
+      rotate: calc(-1 * var(--shake));
+    }
+    100% {
+      rotate: 0;
+    }
   }
 </style>
 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="display: none;" hidden>
@@ -335,12 +366,12 @@
   </symbol>
 </svg>
 <div id="slider">
-  <div class="slide active" id="asperox-animation">
+  <div class="slide retro-banner active" id="asperox-animation" data-duration="10">
     <div class="bottle">
-      <img src="https://hygiene247.com/wp-content/uploads/2026/11/zard.webp" class="active"/>
-      <img src="https://hygiene247.com/wp-content/uploads/2026/11/abi.webp"/>
-      <img src="https://hygiene247.com/wp-content/uploads/2026/11/narenji.webp"/>
-      <img src="https://hygiene247.com/wp-content/uploads/2026/11/sabz.webp"/>
+      <img src="https://hygiene247.com/wp-content/uploads/2026/11/yellow.webp" class="active"/>
+      <img data-src="https://hygiene247.com/wp-content/uploads/2026/11/blue.webp"/>
+      <img data-src="https://hygiene247.com/wp-content/uploads/2026/11/orange.webp"/>
+      <img data-src="https://hygiene247.com/wp-content/uploads/2026/11/green.webp"/>
     </div>
 
     <div class="center">
@@ -393,17 +424,58 @@
     </div>
 
     <div class="video">
-      <video muted>
-        <source src="https://hygiene247.com/wp-content/uploads/2026/11/VID_20261108_115232_249.mp4">
+      <video muted width="467" height="581">
+        <source src="https://hygiene247.com/wp-content/uploads/2026/11/asperox-video.mp4">
       </video>
     </div>
 
   </div>
-  <div class="slide generic" data-duration="4">
-    اسلاید تستی ۱
+  <div class="slide retro-banner fairy" id="fairy-animation" data-duration="7">
+    <div class="bottle">
+      <img data-src="https://hygiene247.com/wp-content/uploads/2026/11/fairy.webp" class="active"/>
+    </div>
+
+    <div class="center">
+      <p class="title">
+        دستمال های مرطوب 
+        <em>FAIRY</em>
+      </p>
+      <p class="sticker">
+          <svg class="trapezoid left" viewBox="-15 -32 15 32" preserveAspectRatio="none" width="1em"  >
+            <g transform="scale(1,-1)">
+              <path d="M 0 0 H -3.7944 C -5.1066 0 -6.2665 0.8528 -6.6579 2.1052 L -14.7829 28.1052 C -15.3865 30.037 -13.9433 32 -11.9194 32 H 0 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <svg class="trapezoid right" viewBox="-15 0 15 32" preserveAspectRatio="none" width="1em" style="transform: scale(-1)">
+            <path d="M 0 0 H -3.7944 C -5.1066 0 -6.2665 0.8528 -6.6579 2.1052 L -14.7829 28.1052 C -15.3865 30.037 -13.9433 32 -11.9194 32 H 0 Z"
+              fill="currentColor"
+            />
+          </svg>
+        مناسب اتصال به تی
+      </p>
+      <div class="text-placeholder">
+        <p class="text active">
+          <svg class="twinkle" viewBox="0 0 24 24">
+            <use href="#icon-twinkle"/>
+          </svg>
+          در رایحه های متنوع
+        </p>
+      </div>
+    </div>
+
+    <div class="video">
+      <video muted width="467" height="581">
+        <source data-src="https://hygiene247.com/wp-content/uploads/2026/11/fairy-video.mp4">
+      </video>
+    </div>
+
   </div>
-  <div class="slide generic" data-duration="2">
-    اسلاید تستی ۲
+  <div class="slide" data-duration="8" id="welcome">
+    <video muted autoplay>
+      <source data-src="https://hygiene247.com/wp-content/uploads/2026/11/welcome-video.mp4">
+    </video>
   </div>
   <div class="controls">
     <svg width="1em" height="1em" viewBox="0 0 24 24" class="left js-prev">
@@ -415,87 +487,118 @@
   </div>
 </div>
 <script>
-  const InitUniqueTimeout = () => {
-    let databse = new Map();
-    return (fn, timeout, id) => {
-      const already = databse.get(id)
-      if (already) clearTimeout(already)
-      let obj = setTimeout(fn, timeout)
-      databse.set(id, obj)
+const InitUniqueTimeout = () => {
+  let databse = new Map();
+  return (fn, timeout, id) => {
+    const already = databse.get(id)
+    if (already) clearTimeout(already)
+    let obj = setTimeout(fn, timeout)
+    databse.set(id, obj)
+  }
+}
+
+const uniqe_timeout = InitUniqueTimeout()
+
+window.addEventListener("load", () => {
+  setTimeout(initSlider, 0)
+})
+
+const initSlider = () => {
+  const slider = document.getElementById("slider")
+  if (!slider) throw new Error("slider not found")
+
+  const next = slider.querySelector(".js-next")
+  const prev = slider.querySelector(".js-prev")
+  const slides = Array.from(slider.querySelectorAll(".slide"))
+
+  const welcome_video = slider.querySelector("#welcome")?.querySelector("video")
+
+  const asperox = slider.querySelector("#asperox-animation");
+  if (!asperox) throw new Error("asperox not found")
+  const video = asperox.querySelector("video")
+  if (!video) throw new Error("asperox has no video")
+  const fairy = slider.querySelector("#fairy-animation video");
+  const texts = asperox.querySelectorAll(".text")
+  const bottles = asperox.querySelectorAll(".bottle img")
+  const timing = [0,2.5,3,2,2.5];
+
+  const start_fairy_animation = () => {
+    if (fairy) {
+      fairy.currentTime = 0
+      fairy.play()
     }
   }
+  const start_asperox_animation = () => {
+    video.currentTime = 0
+    video?.play();
 
-  const uniqe_timeout = InitUniqueTimeout()
+    timing.reduce((prev, current, index) => {
+      uniqe_timeout(() => {
+        const text = Array.from(texts).at(index-1);
+        const bottle = Array.from(bottles).at(index-1);
+        texts.forEach(t => t.classList.remove("active"))
+        bottles.forEach(t => t.classList.remove("active"))
+        text?.classList.add("active")
+        bottle?.classList.add("active")
+      }, prev * 1000, index)
+      return prev + current
+    })
+  }
+  start_asperox_animation()
 
-  window.addEventListener("load", () => {
-    setTimeout(initSlider, 0)
-  })
-
-  const initSlider = () => {
-    const slider = document.getElementById("slider")
-    if (!slider) throw new Error("slider not found")
-    slider.classList.add("active")
-
-    const next = slider.querySelector(".js-next")
-    const prev = slider.querySelector(".js-prev")
-    const slides = Array.from(slider.querySelectorAll(".slide"))
-
-    const asperox = slider.querySelector("#asperox-animation");
-    if (!asperox) throw new Error("asperox not found")
-    const video = asperox.querySelector("video")
-    if (!video) throw new Error("asperox has no video")
-    const texts = asperox.querySelectorAll(".text")
-    const bottles = asperox.querySelectorAll(".bottle img")
-    const timing = [0,2.5,3,2,2.5];
-
-    video?.addEventListener("ended", () => slider_control.next());
-
-    const start_asperox_animation = () => {
-      video.currentTime = 0
-      video?.play();
-
-      timing.reduce((prev, current, index) => {
-        uniqe_timeout(() => {
-          const text = Array.from(texts).at(index-1);
-          const bottle = Array.from(bottles).at(index-1);
-          texts.forEach(t => t.classList.remove("active"))
-          bottles.forEach(t => t.classList.remove("active"))
-          text?.classList.add("active")
-          bottle?.classList.add("active")
-        }, prev * 1000, index)
-        return prev + current
+  let slider_control = new class {
+    index = 0
+    timer = null
+    next_index = () => this.index = (this.index + 1) % slides.length 
+    prev_index = () => this.index = (this.index - 1) % slides.length 
+    show_active_slide = () => {
+      slides.forEach(s => s.classList.remove("active"))
+      slides.at(this.index)?.classList.add("active")
+      slides.at(this.index)?.querySelectorAll("[data-src]").forEach(s => {
+        if (s instanceof HTMLSourceElement && s.parentNode instanceof HTMLMediaElement) {
+          s.parentNode.load()
+        }
+        s.setAttribute("src", s.getAttribute("data-src") || "")
+        s.removeAttribute("data-src")
       })
     }
-    start_asperox_animation()
-
-    let slider_control = new class {
-      index = 0
-      timer = null
-      next_index = () => this.index = (this.index + 1) % slides.length 
-      prev_index = () => this.index = (this.index - 1) % slides.length 
-      show_active_slide = () => {
-        slides.forEach(s => s.classList.remove("active"))
-        slides.at(this.index)?.classList.add("active")
+    next = () => { this.next_index(); this.show_active_slide(); this.slide_cleanup() }
+    prev = () => { this.prev_index(); this.show_active_slide(); this.slide_cleanup() }
+    slide_cleanup = () => {
+      if (this.timer) clearTimeout(this.timer)
+      const current_slide = slides.at(this.index);
+      // handle duration
+      const duration = current_slide?.getAttribute("data-duration");
+      if (duration) {
+        this.timer = setTimeout(() => {
+          this.next()
+        }, parseInt(duration) * 1000)
       }
-      next = () => { this.next_index(); this.show_active_slide(); this.slide_cleanup() }
-      prev = () => { this.prev_index(); this.show_active_slide(); this.slide_cleanup() }
-      slide_cleanup = () => {
-        if (this.timer) clearTimeout(this.timer)
-        const current_slide = slides.at(this.index);
-        // handle duration
-        const duration = current_slide?.getAttribute("data-duration");
-        if (duration) {
-          this.timer = setTimeout(() => {
-            this.next()
-          }, parseInt(duration) * 1000)
-        }
-        // handle asperox video play
-        if (current_slide?.id === "asperox-animation") {
-          start_asperox_animation()
+      // handle asperox video play
+      if (current_slide?.id === "asperox-animation") {
+        start_asperox_animation()
+      }
+      if (current_slide?.id === "fairy-animation") {
+        start_fairy_animation()
+      }
+      if (current_slide?.id === "welcome") {
+        if (welcome_video) {
+          welcome_video.currentTime = 0
+          welcome_video.play()
         }
       }
     }
-    next?.addEventListener("click", () => slider_control.next() )
-    prev?.addEventListener("click", () => slider_control.prev() )
   }
+
+  next?.addEventListener("click", () => slider_control.next() )
+  prev?.addEventListener("click", () => slider_control.prev() )
+
+  const initial_duration = parseInt(asperox.getAttribute("data-duration") ?? "10");
+  setTimeout(() => { slider_control.next() }, initial_duration * 1000)
+  asperox.querySelectorAll("[data-src]").forEach(s => {
+    s.setAttribute("src", s.getAttribute("data-src") || "")
+    s.removeAttribute("data-src")
+  })
+  slider.classList.add("active")
+}
 </script>
