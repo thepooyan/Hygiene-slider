@@ -10,6 +10,13 @@
     display: flex;
     justify-content: center;
     margin-top: -3.2rem;
+
+    @media (max-width: 1025px) {
+      --slider-height: 20rem;
+    }
+    @media (max-width: 769px) {
+      --slider-height: 15rem;
+    }
   }
   #slider {
     direction: rtl;
@@ -65,12 +72,6 @@
     &:not(.active) {
       filter: grayscale(1) blur(9px);
     }
-    @media (max-width: 1025px) {
-      --slider-height: 20rem;
-    }
-    @media (max-width: 769px) {
-      --slider-height: 15rem;
-    }
   }
 
   .retro-banner {
@@ -111,6 +112,7 @@
         max-height: 100%;
         max-width: 100%;
         width: max-content;
+        height: max-content;
         border: 5px solid white;
         background: white;
         aspect-ratio: 2/2.5;
@@ -302,9 +304,14 @@
       padding: 1rem;
       gap: .3rem;
       .center {
-        gap: 1rem;
+        gap: 0;
+        flex: 22%;
         .text-placeholder {
           height: 2.4rem;
+          .text {
+            border-width: 2px;
+            font-size: .6rem;
+          }
         }
       }
       .bottle {
@@ -313,6 +320,11 @@
       .video {
         margin: auto;
         max-width: 20rem;
+        max-height: 100%;
+
+        video {
+          max-height: 13.3rem;
+        }
       }
     }
     @media (max-width: 481px) {
