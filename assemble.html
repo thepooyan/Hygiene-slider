@@ -392,7 +392,7 @@
   </symbol>
 </svg>
 <div id="slider">
-  <div class="slide retro-banner active" id="asperox-animation" data-duration="10">
+  <a href="/brand/asperox/" class="slide retro-banner active" id="asperox-animation" data-duration="10">
     <div class="bottle">
       <img src="https://hygiene247.com/wp-content/uploads/2026/11/yellow.webp" class="active"/>
       <img data-src="https://hygiene247.com/wp-content/uploads/2026/11/blue.webp"/>
@@ -455,8 +455,8 @@
       </video>
     </div>
 
-  </div>
-  <div class="slide retro-banner fairy" id="fairy-animation" data-duration="7">
+  </a>
+  <a href="/product-category/cleaning-tissues/cleaning-clothes/cleaning-wipes/" class="slide retro-banner fairy" id="fairy-animation" data-duration="7">
     <div class="bottle">
       <img data-src="https://hygiene247.com/wp-content/uploads/2026/11/fairy.webp" class="active"/>
     </div>
@@ -497,7 +497,7 @@
       </video>
     </div>
 
-  </div>
+  </a>
   <div class="slide" data-duration="8" id="welcome">
     <video muted autoplay>
       <source data-src="https://hygiene247.com/wp-content/uploads/2026/11/welcome-video.mp4">
@@ -621,7 +621,7 @@ const initSlider = () => {
   prev?.addEventListener("click", () => slider_control.prev() )
 
   const initial_duration = parseInt(asperox.getAttribute("data-duration") ?? "10");
-  setTimeout(() => { slider_control.next() }, initial_duration * 1000)
+  slider_control.timer = setTimeout(() => { slider_control.next() }, initial_duration * 1000)
   asperox.querySelectorAll("[data-src]").forEach(s => {
     s.setAttribute("src", s.getAttribute("data-src") || "")
     s.removeAttribute("data-src")
